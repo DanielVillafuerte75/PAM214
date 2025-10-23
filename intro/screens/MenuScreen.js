@@ -19,7 +19,7 @@ export default function MenuScreen() {
             return <ContadorScreen/>
         case 'botones':
             return <BotonesScreen/>
-        case 'textInput':
+        case 'TextInput':
             return <TextInputScreen/>
         case 'imageBackground':
             return <ImageBackgroundScreen/>
