@@ -21,7 +21,7 @@ export default function MenuScreen() {
             return <BotonesScreen/>
         case 'TextInput':
             return <TextInputScreen/>
-        case 'imageBackground':
+        case 'ImageBackground':
             return <ImageBackgroundScreen/>
         case 'scrollView':
             return <ScrollViewScreen/>
