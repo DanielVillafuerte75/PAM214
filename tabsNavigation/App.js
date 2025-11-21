@@ -1,12 +1,25 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import {Ionicons} from '@expo/vector-icons';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Home from './screens/home';
 import Profile from './screens/profile';
 import Settings from './screens/settings';
+import UserDetails from './screens/userDetails';
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
+
+// Stack para Profile que incluye UserDetails
+function ProfileStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="ProfileMain" component={Profile} options={{ headerShown: false }} />
+      <Stack.Screen name="UserDetails" component={UserDetails} />
+    </Stack.Navigator>
+  );
+}
 
 export default function App() {
   return (
@@ -32,7 +45,7 @@ export default function App() {
         })}
       >
         <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Profile" component={Profile} />
+        <Tab.Screen name="Profile" component={ProfileStack} />
         <Tab.Screen name="Settings" component={Settings} />
       </Tab.Navigator>
     </NavigationContainer>
